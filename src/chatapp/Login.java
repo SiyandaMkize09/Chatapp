@@ -14,8 +14,6 @@ public class Login {
  
  }
   
-        
-    
     //this are variables for the user
     private final String username;
     private final String password;
@@ -87,7 +85,7 @@ public class Login {
       }
       //Check phone number
       if(!checkPhone_Number()) {
-          return "Phone number is incorrectly formatted. It must start with +27 and be 12 digits.";
+          return "Phone number is incorrectly formatted. It must start with +27 and be 10 digits.";
       }
       //if all the checks pass
       return "Username successfully captured.And password successfully captured. And phone number successfully added";
@@ -101,18 +99,21 @@ public class Login {
               this.password.equals(inputPassword);
   //return true only if username & password are correct
     }
+  public static boolean loginUserAuth(String username, String password){
+      return Filehandler.checkLogin(username, password);
+  }
   //this is the login message
   //returns maessage based on the login results
-  public String returnLoginStatus(boolean status, String firstName, String lastName){
-      if(status){
-  //this method returns a meesage based on whether login was succesful or not
-          return"Welcome"+ firstName+""+lastName+",it is great to see you again";
-      }
-      else{
-          return " Username or password is incorrect, please try again.";
-      }
-    }
-  }
   
+    // ===== LOGIN MESSAGE =====
+    public static String returnLoginStatus(boolean status) {
+
+        if (status) {
+            return "Login successful, welcome back";
+        } else {
+            return "Username or password incorrect, please try again";
+        }
+    }
+}
   
          

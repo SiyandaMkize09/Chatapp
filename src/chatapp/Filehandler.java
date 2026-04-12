@@ -18,15 +18,14 @@ public class Filehandler {
         try{
             File file = new File("RegisterUser.txt");
             Scanner reader = new Scanner(file);
-            while
-                    (reader.hasNextLine()){
+            while (reader.hasNextLine()){
                 String line = reader.nextLine();
                 String[]data = line.split(",");
                 
-    String storedUsername = data[1];
-    String storedPassword = data[2];
+    String storedUsername = data[0];
+    String storedPassword = data[1];
             if 
-    (storedUsername.equals(username)&& storedPassword.equals(password)){ 
+    (storedUsername.trim().equals(username)&& storedPassword.trim().equals(password));{
                 reader.close();
                 return true;
             }               

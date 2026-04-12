@@ -33,20 +33,22 @@ public class ChatApp {
                 
                case 2:
                    Login.loginUser();
-                   System.out.print("Enter Username:");
-                   String Username = input.nextLine(); 
-                   System.out.print("Enter your password:");
-                   String Password = input.nextLine();
-                   
-                      // Simple login check (no file handler)
-    if (Username.equals("stuart") && Password.equals("1234")) {
-        System.out.println("Welcome, " + Username + "!");
-       
-    } else {
-        System.out.println("Username or password are incorrect.");
-    }
 
-    break; 
+    System.out.println("\n=== Login ===");
+
+    System.out.print("Enter Username: ");
+    String logUsername = input.nextLine().trim();
+
+    System.out.print("Enter Password: ");
+    String logPassword = input.nextLine().trim();
+
+    // Use Login class now
+    boolean status = Login.loginUserAuth(logUsername, logPassword);
+
+    // Show message
+    System.out.println(Login.returnLoginStatus(status));
+
+    break;
    
                case 3:
                    System.out.println("Goodbye");
