@@ -85,7 +85,7 @@ public class Login {
       }
       //Check phone number
       if(!checkPhone_Number()) {
-          return "Phone number is incorrectly formatted. It must start with +27 and be 10 digits.";
+          return "Phone number is incorrectly formatted. It must start with +27 and be 9 digits.";
       }
       //if all the checks pass
       return "Username successfully captured.And password successfully captured. And phone number successfully added";
@@ -104,11 +104,9 @@ public class Login {
   }
   //this is the login message
   //returns maessage based on the login results
-  
-    // ===== LOGIN MESSAGE =====
-    public static String returnLoginStatus(boolean status) {
+    public static String returnLoginStatus(boolean success) {
 
-        if (status) {
+        if (success) {
             return "Login successful, welcome back";
         } else {
             return "Username or password incorrect, please try again";

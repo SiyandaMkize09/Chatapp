@@ -21,19 +21,21 @@ public class Filehandler {
             while (reader.hasNextLine()){
                 String line = reader.nextLine();
                 String[]data = line.split(",");
+               
+                
                 
     String storedUsername = data[0];
     String storedPassword = data[1];
             if 
-    (storedUsername.trim().equals(username)&& storedPassword.trim().equals(password));{
+    (storedUsername.equals(username)&& storedPassword.equals(password)){
                 reader.close();
-                return true;
+                return true;// found a match = login succesful
             }               
             }
             reader.close();
-            
+            return true;// went through the file, no match found
         }catch(IOException e){
-            System.out.println("Error reading file");
+            System.out.println("Error reading file");// can't read file login fails
         }
         return false;
     }
