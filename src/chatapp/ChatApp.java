@@ -21,7 +21,8 @@ public class ChatApp {
             System.out.println("1.Register");
             System.out.println("2.Login");
             System.out.println("3 Send message");
-            System.out.println("4.Exit");
+            System.out.println("4.Stored messages");
+            System.out.println("5.Exit");
             System.out.println("choose your option");
             
             int option = input.nextInt();
@@ -102,10 +103,24 @@ public class ChatApp {
                     System.out.println(
                             "Total messages sent: "
                                     + msg.returnTotalMessages());
-                   
+           
                    break;
    
-               case 4:
+     case 4:
+    //display mhaeding for stored messages
+    System.out.println(" Stored Messages");
+    //display all stored messages
+    StoredMessages.displayStoredMessages();
+    //display heading for IDs
+    System.out.println(" Message IDS");
+    //display all stored message IDs
+    StoredMessages.displayIDs();
+    //display heading for message hashes
+    System.out.println("Mesage Hashes");
+    //display all stored message hashes
+    StoredMessages.displayHashes();
+    break;
+               case 5:
                    System.out.println("Goodbye");
                              System.exit(1);
                              break;
@@ -115,4 +130,3 @@ public class ChatApp {
         }
     }
 }
- 
